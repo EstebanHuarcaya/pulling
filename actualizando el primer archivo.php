@@ -40,6 +40,15 @@ public class Hooks {
 
 		}
 
+		if (scenario.isFailed()) {
+			// screenshot
+			File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
+			scenario.attach(fileContent, "image/png", "image");
+                        ESTEBANDIDO.COM.PRIME
+
+		}
+
 	}
 
 }
